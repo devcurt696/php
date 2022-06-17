@@ -1,7 +1,7 @@
 <?php 
 function randomNumGen() {
     $numDice= $_POST["numDice"];
-
+    $numSides = $_POST["numSides"];
 }
 
 ?>
