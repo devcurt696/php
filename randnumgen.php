@@ -18,17 +18,18 @@
         </header>
 
         <form method="POST">
-            <label for="numDice">Enter a number of dice...</label><br/>
-            <input type="number" min="1" id="numDice" name="numDice"/><br>
-            <label for="numSides">Select Number of Sides:</label><br>
+            <label for="numDice">Enter a number of dice...</label><br/><br/>
+            <input type="number" min="1" id="numDice" name="numDice"/><br/><br/>
+            <label for="numSides">Select Number of Sides:</label><br/><br/>
             <select name="numSides" id="numSides">
                 <option>d4</option>
                 <option>d6</option>
                 <option>d8</option>
                 <option>d10</option>
                 <option>d12</option>
-            </select><br>
+            </select><br/><br/>
             <button type="submit" >Roll</button>
+            <br/><br/>
 
         </form>
         <?php
@@ -37,7 +38,18 @@
     if (isset($sides)) {
         for ($i = 0; $i < $numDice; $i++) {
             echo "Number of Dice ".($i+1).": ";
-            echo rand(1, 6);
+            if ($sides == "d4"){
+                print_r(rand(1,4));
+            } else if($sides == "d6"){
+                print_r(rand(1, 6));
+            } else if($sides == "d8") {
+                print_r(rand(1,8));
+            } else if ($sides == "d10"){
+                print_r(rand(1,10));
+            } else {
+                print_r(rand(1,12));
+            }
+            
             echo "<br>";
         }
     }
