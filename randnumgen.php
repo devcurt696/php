@@ -28,7 +28,7 @@
                 <option>d10</option>
                 <option>d12</option>
             </select><br>
-            <button type="submit" ></button>
+            <button type="submit" >Roll</button>
 
         </form>
         <?php
@@ -37,7 +37,7 @@
     if (isset($sides)) {
         for ($i = 0; $i < $numDice; $i++) {
             echo "Number of Dice ".($i+1).": ";
-            echo rand(1, $sides);
+            echo rand(1, 6);
             echo "<br>";
         }
     }
