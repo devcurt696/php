@@ -35,7 +35,9 @@
         <?php
         $numDice = $_POST["numDice"];
         $sides = $_POST["numSides"];
-    if (isset($sides)) {
+
+
+    if ((isset($sides)) && $numDice !== 0) {
         for ($i = 0; $i < $numDice; $i++) {
             echo "Number of Dice ".($i+1).": ";
             if ($sides == "d4"){
