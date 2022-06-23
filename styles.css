@@ -1,0 +1,57 @@
+.error {
+    background: #d33;
+    color: white;
+    padding: 0.2em;
+}
+
+body {
+    background-color: cyan;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+h1 {
+    background-color: blue;
+    color: white;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+h2 {
+    background-color: grey;
+    color: blue;
+}
+
+ul {
+
+
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: grey;
+}
+
+li {
+    float: left;
+
+}
+
+li a {
+    display: block;
+    color: blue;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+    color: #9494FF;
+}
+
+li a:active {
+    color: aqua;
+}
