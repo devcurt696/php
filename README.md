@@ -1,3 +1,3 @@
 # php
 PHP practice exercises
-These are from codementor.io and are just to showcase my knowledge of PHP.
+These are from codementor.io  and my classes at Broward College and are to showcase my knowledge of PHP.
