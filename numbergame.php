@@ -32,7 +32,7 @@ function processForm() {
 
 }
 
-function displayForm($number, $guessesLeft=5, $message = "") {
+function displayForm($number, $guessesLeft=10, $message = "") {
 ?>
 <form action="" method="post">
     <div>
