@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "name": "http://C:\\wamp64\\bin\\php\\php8.1.0\\pear\\HTML\\Table.php",
+            "request": "launch",
+            "url": "http://C:\\wamp64\\bin\\php\\php8.1.0\\pear\\HTML\\Table.php"
+        }
+    ]
+}
