@@ -4,16 +4,19 @@ require_once("config.php");
 require_once("Member.class.php");
 require_once("LogEntry.class.php");
 $memberId = isset($_GET["memberId"]) ? (int)$_GET["memberId"] : 0;
-if(!$member = Member::getMember($memberId)) {
+$newMember = new Member($data);
+if(!$member = $newMember->getMember($memberId)) {
     displayPageHeader("Error");
     echo "<div>Member not found.</div>";
     displayPageFooter();
     exit;
 }
-$logEntries = LogEntry::getLogEntries($memberId);
+$logEntries = new LogEntry();
+       $logEntries->getLogEntries($memberId);
 displayPageHeader("View member: " . $member->getValueEncoded("lastName") . " " . $member->getValueEncoded("lastName"));
 ?>
     <dl style="width: 30em;">
+        
         <dt>Username</dt>
         <dd><?php echo $member->getValueEncoded("username") ?></dd>
         <dt>First Name</dt>

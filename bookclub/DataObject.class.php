@@ -1,11 +1,16 @@
 <?php
 require_once( "config.php");
-abstract class DataObject {
+class DataObject {
     protected $data = array();
     public function __construct($data) {
-        foreach ($data as $key => $value) {
-            if (array_key_exists($key, $this->data)) $this->data[$key] = $value;
+        if (isset($data)) {
+            foreach ($data as $key => $value) {
+                if (array_key_exists($key, $this->data)) $this->data[$key] = $value;
+            }
+        } else {
+            echo "array is empty!";
         }
+        
     }
     public function getValue($field) {
         if (array_key_exists($field, $this->data)) {

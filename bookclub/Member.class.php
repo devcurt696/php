@@ -22,15 +22,17 @@ class Member extends DataObject {
         "adventure" => "Adventure",
         "nonFiction" => "Non-Fiction"
     );
+    
     public function getMembers($startRow, $numRows, $order) {
-        $conn = new DataObject();
-        $conn->connect();
+        
+        $conn = $this->connect();
+        
         
         $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . TBL_MEMBERS . "ORDER BY $order LIMIT :startRow, :numRows";
         try{
             $st = $conn->prepare($sql);
-            $st->bindValue(":startRow", $startRow, \PDO::PARAM_INT);
-            $st->bindValue(":numRows", $numRows, \PDO::PARAM_INT);
+            $st->bindValue(":startRow", $startRow, PDO::PARAM_INT);
+            $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
             $st->execute();
             $members = array();
             foreach ($st->fetchAll() as $row) {
@@ -38,25 +40,26 @@ class Member extends DataObject {
             }
             $st = $conn->query( "SELECT found_rows() AS totalRows" );
             $row = $st->fetch();
-            parent::disconnect($conn);
+            $conn->disconnect();
             return array($members, $row["totalRows"]);
         } catch (PDOException $e) {
-            parent::disconnect($conn);
+            $conn->disconnect();
             die("Query failed: " . $e->getMessage());
         }
     }
-    public static function getMember($id) {
-        $conn = parent::connect();
+    public function getMember($id) {
+       
+        $conn = $this->connect();
         $sql = "SELECT * FROM " . TBL_MEMBERS . " WHERE id = :id";
         try {
             $st = $conn->prepare($sql);
             $st->bindValue(":id", $id, PDO::PARAM_INT);
             $st->execute();
             $row = $st->fetch();
-            parent::disconnect($conn);
+            $conn->disconnect;
             if ($row) return new Member($row);
         } catch (PDOException $e) {
-            parent::disconnect($conn);
+            $conn->disconnect;
             die("Query failed: " . $e->getMessage() );
         }
     }
